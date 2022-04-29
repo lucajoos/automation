@@ -5,6 +5,7 @@ import gh from '../handlers/gh.mjs';
 import log from '../log.mjs';
 import config from '../config.mjs';
 import helpers from '../helpers/index.mjs';
+import _merge from 'lodash.merge';
 
 const merge = async ({configuration, session, callback}) => {
   const base = configuration.branches.find(
@@ -64,7 +65,9 @@ const merge = async ({configuration, session, callback}) => {
     update.issues.splice(update.issues.indexOf(update.issues.find(current => current.number === issue.number)), 1);
     update.issue = -1;
 
-    await git.branch.update(update);
+    await git.branch.set(base.name);
+
+    update = _merge(update, await git.branch.update(update));
     await config.save(configuration.path, update, {isLogging: false});
 
     helpers.cli.delimiter(update, session);
