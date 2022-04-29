@@ -22,12 +22,12 @@ const git = {
     }
   },
 
-  commit: async ({ message, label='', scope='', body=''}, flags=[],) => {
+  commit: async ({ message, label='', scope=''}, flags=[],) => {
     if(!helpers.general.check({ message })) {
       return;
     }
 
-    return await helpers.commands.execute(`git commit${helpers.commands.flags(flags)} -m "${label.length > 0 ? `${label}` : ''}${scope.length > 0 ? `(${scope})` : ''}${label.length > 0 ? ': ' : ''}${message}"${body.length > 0 ? ` -m "${body}"` : ''}`);
+    return await helpers.commands.execute(`git commit${helpers.commands.flags(flags)} -m "${label.length > 0 ? `${label}` : ''}${scope.length > 0 ? `(${scope})` : ''}${label.length > 0 ? ': ' : ''}${message}"`);
   },
 
   synchronize: async (direction, remote, branch, flags=[]) => {

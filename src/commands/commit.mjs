@@ -17,23 +17,18 @@ const commit = async ({configuration, callback}) => {
       choices: configuration.labels.map(label => label.label),
     }, {
       type: 'input',
-      name: 'scope',
-      message: 'scope',
-    }, {
-      type: 'input',
       name: 'message',
       message: 'message',
     }, {
       type: 'input',
-      name: 'body',
-      message: 'body',
+      name: 'scope',
+      message: 'scope',
     }]).
       then(async ({
         files = '',
         message = '',
         label = '',
         scope = '',
-        body = '',
       }) => {
         if (!helpers.general.check({message})) {
           callback(configuration);
@@ -47,7 +42,7 @@ const commit = async ({configuration, callback}) => {
         }
 
         const update = configuration;
-        const commit = {files, message, label, scope, body};
+        const commit = {files, message, label, scope};
 
         await git.commit(commit);
 
