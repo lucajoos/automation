@@ -59,7 +59,6 @@ const commit = async ({configuration, callback}) => {
         }
 
         update.commits[configuration.branch.name].push(commit);
-        await config.save(configuration.path, update, {isLogging: false});
 
         callback(update);
       });

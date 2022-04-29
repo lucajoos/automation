@@ -42,7 +42,6 @@ const select = async ({ configuration, session, args, callback }) => {
   });
 
   update = merge(update, await git.branch.update(update));
-  await config.save(configuration.path, update, { isLogging: false });
 
   helpers.cli.delimiter(update, session);
   callback(update);

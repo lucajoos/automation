@@ -68,7 +68,6 @@ const merge = async ({configuration, session, callback}) => {
     await git.branch.set(base.name);
 
     update = _merge(update, await git.branch.update(update));
-    await config.save(configuration.path, update, {isLogging: false});
 
     helpers.cli.delimiter(update, session);
 

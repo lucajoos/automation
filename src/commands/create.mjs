@@ -44,7 +44,6 @@ const create = async ({ configuration, self, callback, session }) => (
       update.issue = number;
 
       helpers.cli.delimiter(update, session);
-      await config.save(configuration.path, update, { isLogging: false });
 
       callback(update);
     })

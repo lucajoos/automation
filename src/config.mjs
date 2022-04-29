@@ -51,8 +51,10 @@ const config = {
     })
   ),
 
-  save: async (location, configuration, { isLogging = true }) => {
-    await fs.promises.writeFile(location, JSON.stringify(configuration, null, 2), { encoding: 'utf8' });
+  save: async (location, { version, repository, remote, base, config, path}, { isLogging = true }) => {
+    await fs.promises.writeFile(location, JSON.stringify({
+      version, repository, remote, base, config, path
+    }, null, 2), { encoding: 'utf8' });
 
     if(isLogging) {
       log.info('saved configuration');

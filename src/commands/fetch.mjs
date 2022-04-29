@@ -7,7 +7,6 @@ const fetch = async ({ configuration, callback }) => {
     ...await gh.fetch(configuration, { isLogging: true })
   });
 
-  await config.save(configuration.path, update, { isLogging: false });
   callback(update);
 };
 
