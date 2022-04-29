@@ -8,9 +8,9 @@ import { VERSION } from './constants.mjs';
 import { v4 as uuid } from 'uuid';
 
 const TEMPLATE = {
+  version: VERSION,
   repository: '',
   url: '',
-  version: VERSION,
   issue: -1,
   branch: '',
   issues: [],
@@ -51,9 +51,9 @@ const config = {
     })
   ),
 
-  save: async (location, { version, repository, remote, base, config, path, branches }, { isLogging = true }) => {
+  save: async (location, { version, url, repository, remote, base, config, path, branches }, { isLogging = true }) => {
     await fs.promises.writeFile(location, JSON.stringify({
-      version, repository, remote, base, config, path, branches: branches.filter(branch => branch.ref === 'development' || branch.ref === 'main')
+      version, url, repository, remote, base, config, path, branches: branches.filter(branch => branch.ref === 'development' || branch.ref === 'main')
     }, null, 2), { encoding: 'utf8' });
 
     if(isLogging) {
