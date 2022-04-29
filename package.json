@@ -1,0 +1,29 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "Automate your workflow",
+  "main": "src/index.mjs",
+  "repository": "https://github.com/lucajoos/automation.git",
+  "author": "Luca Joos <me@lucajoos.de>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./src/index.mjs"
+  },
+  "bin": "./src/index.mjs",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "command-exists": "^1.2.9",
+    "commander": "^9.2.0",
+    "inquirer": "^8.2.2",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.merge": "^4.6.2",
+    "lodash.zip": "^4.2.0",
+    "moment": "^2.29.3",
+    "onceupon.js": "^1.5.11",
+    "ora": "^6.1.0",
+    "pkginfo": "^0.4.1",
+    "table": "^6.8.0",
+    "uuid": "^8.3.2",
+    "vorpal": "^1.12.0"
+  }
+}
