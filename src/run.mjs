@@ -42,8 +42,6 @@ const run = async (events, options) => {
     process.exit(1);
   }
 
-
-
   const fetched = await gh.fetch(configuration, { isLogging: false });
   configuration = merge(configuration, fetched);
 
@@ -53,6 +51,8 @@ const run = async (events, options) => {
   }
 
   configuration = merge(configuration, await git.branch.update(configuration));
+
+  await git.branch.set(configuration.branch.name);
 
   await config.save(path.join(configuration.base, configuration.config), configuration, {
     isLogging: false
