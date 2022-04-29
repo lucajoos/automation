@@ -51,9 +51,9 @@ const config = {
     })
   ),
 
-  save: async (location, { version, repository, remote, base, config, path}, { isLogging = true }) => {
+  save: async (location, { version, repository, remote, base, config, path, branches }, { isLogging = true }) => {
     await fs.promises.writeFile(location, JSON.stringify({
-      version, repository, remote, base, config, path
+      version, repository, remote, base, config, path, branches: branches.filter(branch => branch.ref === 'development' || branch.ref === 'main')
     }, null, 2), { encoding: 'utf8' });
 
     if(isLogging) {

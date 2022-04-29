@@ -42,6 +42,8 @@ const run = async (events, options) => {
     process.exit(1);
   }
 
+
+
   const fetched = await gh.fetch(configuration, { isLogging: false });
   configuration = merge(configuration, fetched);
 
