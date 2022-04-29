@@ -1,6 +1,6 @@
 {
   "name": "@lucajoos/automation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Automate your workflow",
   "main": "src/index.mjs",
   "repository": "git://github.com/lucajoos/automation.git",
