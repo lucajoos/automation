@@ -98,7 +98,7 @@ const run = async (events, options) => {
     .command('fetch')
     .alias('f')
     .description('fetch repository')
-    .action(handler('update'));
+    .action('fetch'));
 
   session
     .command('create')
