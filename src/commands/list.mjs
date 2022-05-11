@@ -13,8 +13,13 @@ const list = async ({ configuration, args, callback }) => {
   const options = {
     selection: configuration.issue,
     count: args.options.count || 10,
-    page: args.options.page || 0
+    page: args.options.page || 1
   };
+
+  if(options.page < 1) {
+    log.error('page option must be greater than 0');
+    return;
+  }
 
   for(const type of types) {
     if(/^(i)(ssue(s)?)?/.test(type)) {

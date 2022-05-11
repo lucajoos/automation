@@ -47,7 +47,7 @@ const gh = {
     list: (data, options) => {
       let config = merge({
         count: 10,
-        page: 0,
+        page: 1,
       }, options);
 
       const rows = data.filter(
@@ -57,7 +57,7 @@ const gh = {
             description: description.length > 105 ? `${ description.slice(0,
                 105) }...` : description,
           })).
-          slice(config.page * config.count, (config.page + 1) * config.count);
+          slice((config.page - 1) * config.count, config.page * config.count);
 
       if (rows.length > 0) {
         const max = zip(
@@ -93,7 +93,7 @@ const gh = {
       let config = merge({
         selection: -1,
         count: 10,
-        page: 0,
+        page: 1,
       }, options);
 
       const rows = data.map(({number, title, labels}) => ({
@@ -101,7 +101,7 @@ const gh = {
         title: title.length > 105 ? `${ title.slice(0, 105) }...` : title,
         labels: labels.join(', ').length > 60 ? `${ labels.join(', ').
             slice(0, 60) }...` : labels.join(', '),
-      })).slice(config.page * config.count, (config.page + 1) * config.count);
+      })).slice((config.page - 1) * config.count, config.page * config.count);
 
       if (rows.length > 0) {
         const max = zip(
