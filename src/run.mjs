@@ -98,7 +98,7 @@ const run = async (events, options) => {
     .command('fetch')
     .alias('f')
     .description('fetch repository')
-    .action('fetch'));
+    .action('fetch');
 
   session
     .command('create')
@@ -111,6 +111,7 @@ const run = async (events, options) => {
     .alias('l')
     .autocomplete([ 'issues', 'labels', 'commits' ])
     .option('-c, --count <number>', 'number of rows')
+    .option('-p, --page <page>', 'page number')
     .description('list selected type')
     .action(handler('list'));
 

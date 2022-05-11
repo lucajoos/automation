@@ -12,7 +12,8 @@ const list = async ({ configuration, args, callback }) => {
 
   const options = {
     selection: configuration.issue,
-    count: args.options.count || 10
+    count: args.options.count || 10,
+    page: args.options.page || 0
   };
 
   for(const type of types) {
