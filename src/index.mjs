@@ -5,6 +5,7 @@ import log from './log.mjs';
 import chalk from 'chalk';
 import { Command } from 'commander';
 import { DESCRIPTION, VERSION } from './constants.mjs';
+import onceupon from 'onceupon.js';
 import * as readline from 'readline';
 import run from './run.mjs';
 
